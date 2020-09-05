@@ -87,7 +87,7 @@ state_rst:  begin A<=0;
                  Major <= 0;
                  Minor<=0;
                  end //signals Zero
-state_TOP_HCLK:  if(Y>Y_Half)
+state_TOP_HCLK:  if(Y>=Y_Half)
                   begin
                     Top <=0;
                      A= Y-Y_Half;
@@ -136,16 +136,16 @@ state_Minor:      if (X[0] == 0)  // --even (0,2,4...)
 state_Wordoffset: if(Bel < 2)
                   begin	//--LUTA or LUTB (0,1)
                   if(Y_offset < Col_Half)// --Odd words from 1 to 25
-                   word_offset <= (Y_offset >> 1)+1; //--Odd words 1,3,5.....49
+                   word_offset <= (Y_offset << 1)+1; //--Odd words 1,3,5.....49
                 else   // --Even words from  to 50
-                   word_offset <= (Y_offset >> 1)+2; //--Even words 52,24,....100
+                   word_offset <= (Y_offset << 1)+2; //--Even words 52,24,....100
                  end   
                 else if(Bel>1) 
                 begin     //--LUTC or LUTD (2,3)
                   if(Y_offset < Col_Half)//then --Odd words from 26 to 50
-                   word_offset <= (Y_offset >> 1) + 2; //--  //Even words 2,4,6.....50
+                   word_offset <= (Y_offset << 1) + 2; //--  //Even words 2,4,6.....50
                   else    //--Even words from 22 to 41
-                   word_offset <= (Y_offset >> 1)+ 3;   //Odd words 51,25....101
+                   word_offset <= (Y_offset << 1)+ 3;   //Odd words 51,25....101
                    end //-- 
 state_done:         done_FAR<=1;
 endcase
