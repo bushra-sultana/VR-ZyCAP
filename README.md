@@ -12,5 +12,7 @@ For Read frame = Op_Sel -> 1, Write frame = Op_Sel->2, DPR_LUT = Op_Sel->3, DPR_
 
 
 This Controller is described in a research paper mentioned below, that is under review in IEEE Transaction in computer Aided design (TCAD).
-Research paper Title:  VR-ZyCAP: A Versatile Resource-level ICAPController for ZynQ SoC
+
+Research paper Title:  "VR-ZyCAP: A Versatile Resource-level ICAPController for ZynQ SoC"
+
 Authors: Bushra Sultana, Anees Ullah, Arslan Malik, Ali Zahir, Pedro Reviriego, Fahad bin Muslim
